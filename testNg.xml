@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Test Automation Suite">
+
+    <test name = "TestNG Testing">
+
+        <classes>
+            <!--  <class name="Test1.testNgPriority"></class>
+              <class name="Test1.testNG"></class>
+              -->
+            <class name="com.progressive.testcases.ProgressiveAutomation_test"></class>
+            <class name="com.progressive.testcases.ProgressiveAutomation_test1"></class>
+            <class name="com.progressive.testcases.ProgressiveAutomation_test2"></class>
+
+        </classes>
+    </test>
+</suite>
