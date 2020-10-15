@@ -11,7 +11,10 @@
             <class name="com.progressive.testcases.ProgressiveAutomation_test"></class>
             <class name="com.progressive.testcases.ProgressiveAutomation_test1"></class>
             <class name="com.progressive.testcases.ProgressiveAutomation_test2"></class>
-            <class name="com.progressive.testcases.HelloWorld"></class>
+            <class name="com.progressive.testcases.ProgressiveAutomation_test3"></class>
+            <class name="com.progressive.testcases.ProgressiveAutomation_test4"></class>
+            <class name="com.progressive.testcases.ProgressiveAutomation_test5"></class>
+
 
         </classes>
     </test>

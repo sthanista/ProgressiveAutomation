@@ -17,17 +17,18 @@ public class HomePage extends TestBase {
 //    @FindBy(xpath = "//span[contains(text(),'Close Banner')]")
 //    WebElement closeAd;
 
-    @FindBy(xpath = "//title[contains(text(),'Quote Auto Insurance, Home-Auto Bundles, & More |')]")
-    WebElement actual;
-    @FindBy(xpath = "//p[contains(text(),'Auto')]")
+//    @FindBy(xpath = "//title[contains(text(),'Quote Auto Insurance, Home-Auto Bundles, & More |')]")
+//    WebElement actual;
+    @FindBy(xpath = "(//p[contains(text(),'Auto')])[1]")
     WebElement option;
 
-    public ZipCode chooseOption() {
+    public ZipCode chooseOption() throws InterruptedException {
         //closeAd.click();
 
-        String actual1 = driver.getTitle();
-        System.out.println(actual.getText());
-        Assert.assertEquals(actual1, "Quote Auto Insurance, Home-Auto Bundles, & More | Progressive");
+        //String actual1 = driver.getTitle();
+        //System.out.println(actual.getText());
+        //Assert.assertEquals(actual1, "Quote Auto Insurance, Home-Auto Bundles, & More | Progressive");
+        Thread.sleep(2000);
         option.click();
         return new ZipCode();
         }

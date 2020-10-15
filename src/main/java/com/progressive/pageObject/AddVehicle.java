@@ -41,71 +41,114 @@ public class AddVehicle extends TestBase {
     @FindBy(xpath = "//select[@id='VehiclesNew_embedded_questions_list_LengthOfOwnership']")
     WebElement lengthOfOwnership;
 
+    @FindBy(xpath = "//input[@id='VehiclesEdit_embedded_questions_list_BlindSpotWarning_Y']")
+    WebElement blindSpot;
+
+    @FindBy(xpath = "//input[@id='VehiclesEdit_embedded_questions_list_BlindSpotWarning_N']")
+    WebElement noBlindSpot;
+
+    @FindBy(xpath = "(//input[@class='ng-pristine ng-valid ng-touched'])")
+    WebElement emergencyBraking;
+
+    @FindBy(xpath = "//input[@id='VehiclesEdit_embedded_questions_list_AutomaticEmergencyBraking_N']")
+    WebElement noEmergencyBraking;
+
     @FindBy(xpath = "//button[contains(text(),'Done')]")
     WebElement button;
 
     @FindBy(xpath = "//a[contains(text(),'Add another vehicle?')]")
     WebElement addButton;
 
-    public void vehicleInformation(String year, String make, String model, String type, String vehicleUse, String option, String period) throws InterruptedException {
+    @FindBy(xpath = "//button[contains(text(),'Remove')]")
+    WebElement removeButton;
+
+    @FindBy(xpath = "//*[contains(text(),'Continue')]")
+    WebElement continueBtn;
+    public void vehicleInformation(String year, String make, String model, String type, String vehicleUse, String option, String period, int dataSize, int count) throws InterruptedException {
 
         //((JavascriptExecutor) driver).executeScript("scroll(0,350)");
         Thread.sleep(10000);
         List<WebElement> elements = driver.findElements(By.xpath("//*[@id='VehiclesNew_embedded_questions_list_Year']/ul/li"));
-        for(WebElement li: elements){
-            if(li.getText().contains(year)){
+        for (WebElement li : elements) {
+            if (li.getText().contains(year)) {
                 li.click();
             }
         }
         List<WebElement> makeElement = driver.findElements(By.xpath("//*[@id='VehiclesNew_embedded_questions_list_Make']/ul/li"));
-        for(WebElement li: makeElement){
-            if(li.getText().contains(make)){
+        for (WebElement li : makeElement) {
+            if (li.getText().contains(make)) {
                 li.click();
             }
         }
         List<WebElement> modelElement = driver.findElements(By.xpath("//*[@id='VehiclesNew_embedded_questions_list_Model']/ul/li"));
-        for(WebElement li:modelElement){
-            if(li.getText().equals(model))
+        for (WebElement li : modelElement) {
+            if (li.getText().equals(model))
                 li.click();
         }
 
 //        String expected = "Body Type";
 //       actual = driver.findElement(By.xpath("//span[contains(text(),'Body Type')]"));
 //        Assert.assertEquals(actual.getText(),expected);
-        if(type != null && !type.isEmpty()){
+        if(!type.equalsIgnoreCase("null")) {
             bodyType.sendKeys(type);
         }
         Thread.sleep(1000);
         primaryUse.sendKeys(vehicleUse);
         Thread.sleep(1000);
         ownOrLease.sendKeys(option);
+        Thread.sleep(1000);
         lengthOfOwnership.sendKeys(period);
+//        JavascriptExecutor js = (JavascriptExecutor) driver;
+//        //Scroll downwards
+//        js.executeScript("window.scrollTo(0,500)");
+//
+//        Thread.sleep(5000);
+//        if(!emergencyBrakingSystem.equalsIgnoreCase("null")) {
+//            System.out.println(emergencyBrakingSystem);
+//            if (emergencyBrakingSystem.contains("Yes")) {
+//
+//                System.out.println(emergencyBrakingSystem +"goo kha");
+//                Thread.sleep(5000);
+//                emergencyBraking.click();
+//                System.out.println(emergencyBraking);
+//            } else if (emergencyBrakingSystem.equalsIgnoreCase("No")) {
+//                Thread.sleep(5000);
+//                noEmergencyBraking.click();
+//            }
+//        }
+//
+//        if(!blindSpotSystem.equalsIgnoreCase("null")) {
+//            System.out.println(blindSpotSystem);
+//            if (blindSpotSystem.equalsIgnoreCase("Yes")) {
+//                blindSpot.click();
+//            } else if (blindSpotSystem.equalsIgnoreCase("No")) {
+//                noBlindSpot.click();
+//            }
+//        }
         button.click();
+        Thread.sleep(2000);
+        if(dataSize-1 != count){
+            addButton.click();
+        }
+
     }
 
-//    public void addAnotherVehicle(String chooseYear, String chooseMake, String chooseModel){
-//        addButton.click();
-//        List<WebElement> anotherYear = driver.findElements(By.xpath("//*[@id='VehiclesNew_embedded_questions_list_Year']/ul/li"));
-//        for(WebElement li:anotherYear){
-//            if(li.getText().equals(chooseYear)){
-//                li.click();
-//            }
-//        }
-//
-//        List<WebElement> anotherMake = driver.findElements(By.xpath("//*[@id='VehiclesNew_embedded_questions_list_Make_Label']/ul/li"));
-//        for(WebElement li:anotherMake){
-//            if(li.getText().equals(chooseMake)){
-//                li.click();
-//            }
-//        }
-//
-//        List<WebElement> anotherModel = driver.findElements(By.xpath("//*[@id='VehiclesNew_embedded_questions_list_Model_Label']/ul/li"));
-//        for(WebElement li:anotherModel){
-//            if(li.getText().equals(chooseModel)){
-//                li.click();
-//            }
-//        }
+    public void removeVehicle(String make) throws InterruptedException {
+        List<WebElement> removeVeh = driver.findElements(By.xpath("//div[@class='on-quote-container ng-trigger ng-trigger-listItemAnimation ng-tns-c174-3 ng-star-inserted']"));
+       for (WebElement li:removeVeh){
+           if(li.getText().contains(make)){
+               li.findElements(By.xpath("(//button[contains(text(),'Remove')])")).get(removeVeh.indexOf(li)).click();
+
+           }
+
+       }
+
+    }
 
 
-    //}
+    public void continueButton() throws InterruptedException {
+        Thread.sleep(1000);
+        continueBtn.click();
+    }
+
 }

@@ -26,7 +26,7 @@ public class ProgressiveAutomation_test extends TestBase {
         initialization();
     }
     @Test(priority = 1)
-    public void performHomePageTask(){
+    public void performHomePageTask() throws InterruptedException {
         homePage = new HomePage();
         homePage.chooseOption();
 
