@@ -7,7 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class ProgressiveAutomation_test1 {
+public class ProgressiveAutomation_test1 extends TestBase{
     public PersonalInfo personalInfo;
 
     @DataProvider

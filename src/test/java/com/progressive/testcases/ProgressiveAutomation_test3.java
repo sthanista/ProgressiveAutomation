@@ -1,11 +1,12 @@
 package com.progressive.testcases;
 
+import com.progressive.base.TestBase;
 import com.progressive.pageObject.AddVehicle;
 import com.progressive.utility.TestDataProvider;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class ProgressiveAutomation_test3 {
+public class ProgressiveAutomation_test3 extends TestBase {
     public AddVehicle remove;
 
     @DataProvider

@@ -1,5 +1,6 @@
 package com.progressive.testcases;
 
+import com.progressive.base.TestBase;
 import com.progressive.pageObject.AddVehicle;
 import com.progressive.utility.TestDataProvider;
 import org.testng.annotations.DataProvider;
@@ -7,7 +8,7 @@ import org.testng.annotations.Test;
 
 import java.util.Arrays;
 
-public class ProgressiveAutomation_test2 {
+public class ProgressiveAutomation_test2 extends TestBase {
     public AddVehicle addVehicle;
     int count = 0;
 

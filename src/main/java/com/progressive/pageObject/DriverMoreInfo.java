@@ -1,6 +1,8 @@
 package com.progressive.pageObject;
 
 import com.progressive.base.TestBase;
+import com.progressive.utility.ExtentTestManager;
+import com.relevantcodes.extentreports.LogStatus;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -61,6 +63,7 @@ public class DriverMoreInfo extends TestBase {
 
     public void driverDetail(String gender, String selectMaritalStatus, String selectEducation, String selectEmployment,String enterOccupation, String socialSecurityNumber, String primaryResidency, String hasPriorAddress, String licensed, String accident, String ticket) throws InterruptedException {
         Thread.sleep(5000);
+        ExtentTestManager.getTest().log(LogStatus.INFO, "Providing Driver more Information");
         if(gender.equalsIgnoreCase("Female")){
             System.out.println("testF");
             genderF.click();
@@ -69,18 +72,27 @@ public class DriverMoreInfo extends TestBase {
             System.out.println("testM");
             genderM.click();
         }
+        ExtentTestManager.getTest().log(LogStatus.INFO, "Selecting gender");
         maritalStatus.sendKeys(selectMaritalStatus);
+        ExtentTestManager.getTest().log(LogStatus.INFO, "Selecting marital status");
         education.sendKeys(selectEducation);
+        ExtentTestManager.getTest().log(LogStatus.INFO, "Selecting education");
         Thread.sleep(2000);
         employment.sendKeys(selectEmployment);
+        ExtentTestManager.getTest().log(LogStatus.INFO, "Selecting employment");
         occupation.sendKeys(enterOccupation);
+        ExtentTestManager.getTest().log(LogStatus.INFO, "Selecting Occupation");
         Thread.sleep(1000);
         ssn.sendKeys(socialSecurityNumber);
+        ExtentTestManager.getTest().log(LogStatus.INFO, "Entering ssn");
         residency.sendKeys(primaryResidency);
+        ExtentTestManager.getTest().log(LogStatus.INFO, "Entering Primary residency");
         Thread.sleep(1000);
         moved.sendKeys(hasPriorAddress);
+        ExtentTestManager.getTest().log(LogStatus.INFO, "Checking if moved");
         Thread.sleep(1000);
         yearLicensed.sendKeys(licensed);
+        ExtentTestManager.getTest().log(LogStatus.INFO, "Entering years licensed");
 
         if(accident.equalsIgnoreCase("Yes")){
             claimsY.click();
@@ -88,6 +100,7 @@ public class DriverMoreInfo extends TestBase {
         else if(accident.equalsIgnoreCase("No")){
             claimsN.click();
         }
+        ExtentTestManager.getTest().log(LogStatus.INFO, "Any claims");
 
         if(ticket.equalsIgnoreCase("Yes")){
             violationY.click();
@@ -95,18 +108,22 @@ public class DriverMoreInfo extends TestBase {
         else if(ticket.equalsIgnoreCase("No")){
             violationN.click();
         }
+        ExtentTestManager.getTest().log(LogStatus.INFO, "Any voilation");
 
         continueBtn.click();
+        ExtentTestManager.getTest().log(LogStatus.INFO, "Click Continue");
 
     }
 
     public void nextPage() throws InterruptedException {
         Thread.sleep(3000);
         continueBtn.click();
+        ExtentTestManager.getTest().log(LogStatus.INFO, "Click Continue");
     }
 
     public void verifyPage() throws InterruptedException {
         Thread.sleep(3000);
         continueBtn.click();
+        ExtentTestManager.getTest().log(LogStatus.INFO, "Click Continue");
     }
 }

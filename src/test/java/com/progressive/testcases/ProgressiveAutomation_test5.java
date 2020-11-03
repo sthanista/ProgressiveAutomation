@@ -1,11 +1,12 @@
 package com.progressive.testcases;
 
+import com.progressive.base.TestBase;
 import com.progressive.pageObject.AdditionalDetails;
 import com.progressive.utility.TestDataProvider;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class ProgressiveAutomation_test5 {
+public class ProgressiveAutomation_test5 extends TestBase {
     public AdditionalDetails additionalDetails;
 
     @DataProvider

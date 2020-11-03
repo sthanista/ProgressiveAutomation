@@ -1,6 +1,8 @@
 package com.progressive.pageObject;
 
 import com.progressive.base.TestBase;
+import com.progressive.utility.ExtentTestManager;
+import com.relevantcodes.extentreports.LogStatus;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -24,7 +26,9 @@ public class ZipCode extends TestBase {
        // option.click();
         //Thread.sleep(8000);
         enterZipCode.sendKeys(zip);
+        ExtentTestManager.getTest().log(LogStatus.INFO,"Enter ZipCode");
         button.click();
+        ExtentTestManager.getTest().log(LogStatus.INFO,"Click the button");
         //return new PersonalInfo();
     }
 }

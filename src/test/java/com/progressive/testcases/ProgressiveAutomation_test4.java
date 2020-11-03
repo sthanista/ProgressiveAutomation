@@ -1,12 +1,13 @@
 package com.progressive.testcases;
 
+import com.progressive.base.TestBase;
 import com.progressive.pageObject.AddVehicle;
 import com.progressive.pageObject.DriverMoreInfo;
 import com.progressive.utility.TestDataProvider;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class ProgressiveAutomation_test4 {
+public class ProgressiveAutomation_test4 extends TestBase {
     public AddVehicle addVehicleButton;
     public DriverMoreInfo driverMoreInfo;
 
