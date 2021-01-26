@@ -10,6 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 public class AdditionalDetails extends TestBase {
 
     public AdditionalDetails(){
+
         PageFactory.initElements(driver,this);
     }
 

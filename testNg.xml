@@ -3,6 +3,7 @@
 <suite name="Test Automation Suite">
 
     <test name = "TestNG Testing">
+        <parameter name="browser" value="chrome"></parameter>
 
         <classes>
             <!--  <class name="Test1.testNgPriority"></class>
